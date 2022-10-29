@@ -7,3 +7,8 @@ def newmaven()
 {
   sh 'mvn package'
 }
+
+def newdeploy(job,ip,context)
+{
+  sh "scp /home/ubuntu/.jenkins/workspace/${job}/webapp/target/webapp.war ubuntu@${ip}:/var/lib/tomcat9/webapps/${context}.war'
+}
